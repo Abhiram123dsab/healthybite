@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Juice Builder | HealthyBites</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* JUICE BUILDER SPECIFIC STYLES */
+    .juice-builder {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .ingredients-panel, .preview-panel {
+      background: rgba(255, 255, 255, 0.98);
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    }
+
+    .ingredient-category {
+      margin-bottom: 2rem;
+    }
+
+    .ingredient-category h3 {
+      color: #218c74;
+      border-bottom: 2px solid #ff6b35;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .ingredient-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .ingredient-option {
+      background: #f0f7f4;
+      border: 1px solid #d1e7dd;
+      border-radius: 20px;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-size: 0.9rem;
+    }
+
+    .ingredient-option:hover {
+      background: #d1e7dd;
+    }
+
+    .ingredient-option.selected {
+      background: #ff6b35;
+      color: white;
+      border-color: #e85d04;
+    }
+
+    .juice-preview {
+      text-align: center;
+      margin: 2rem 0;
+    }
+
+    .juice-glass {
+      width: 180px;
+      height: 250px;
+      background: linear-gradient(to bottom, #f5f5f5 70%, #e0e0e0 100%);
+      border: 3px solid #ddd;
+      border-radius: 30px 30px 80px 80px;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .juice-color {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 0%;
+      transition: height 0.5s, background 0.5s;
+    }
+
+    .nutrition-facts {
+      background: #fff1e6;
+      padding: 1.5rem;
+      border-radius: 10px;
+      margin-top: 2rem;
+    }
+
+    .nutrition-facts h4 {
+      color: #e5383b;
+      margin-bottom: 1rem;
+    }
+
+    .nutrition-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .nutrition-item {
+      text-align: center;
+    }
+
+    .nutrition-value {
+      font-weight: bold;
+      color: #ff6b35;
+      font-size: 1.2rem;
+    }
+
+    .juice-name-input {
+      width: 100%;
+      padding: 0.8rem;
+      border: 2px solid #d1e7dd;
+      border-radius: 8px;
+      font-size: 1rem;
+      margin: 1rem 0;
+    }
+
+    .add-to-cart {
+      width: 100%;
+      padding: 1rem;
+      background: #ff6b35;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+    }
+
+    .add-to-cart:hover {
+      background: #e85d04;
+    }
+
+    @media (max-width: 768px) {
+      .juice-builder {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">HealthyBites</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#">Shop</a></li>
+      <li><a href="custom-juice.html" class="active">Custom Juice</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    <div class="nav-buttons">
+      <a href="#">Login</a>
+      <a href="#">Cart</a>
+    </div>
+  </nav>
+
+  <section class="juice-builder">
+    <div class="ingredients-panel">
+      <h2>Build Your Custom Juice</h2>
+      
+      <div class="ingredient-category">
+        <h3>Base Liquids</h3>
+        <div class="ingredient-options">
+          <div class="ingredient-option" data-type="base" data-name="Coconut Water" data-color="#e6f7e6" data-calories="20">Coconut Water</div>
+          <div class="ingredient-option" data-type="base" data-name="Almond Milk" data-color="#fff2cc" data-calories="30">Almond Milk</div>
+          <div class="ingredient-option" data-type="base" data-name="Green Tea" data-color="#d5e8d4" data-calories="5">Green Tea</div>
+          <div class="ingredient-option" data-type="base" data-name="Orange Juice" data-color="#ffd699" data-calories="110">Orange Juice</div>
+        </div>
+      </div>
+      
+      <div class="ingredient-category">
+        <h3>Fruits</h3>
+        <div class="ingredient-options">
+          <div class="ingredient-option" data-type="fruit" data-name="Strawberry" data-color="#ff6666" data-calories="50">Strawberry</div>
+          <div class="ingredient-option" data-type="fruit" data-name="Blueberry" data-color="#6666ff" data-calories="40">Blueberry</div>
+          <div class="ingredient-option" data-type="fruit" data-name="Mango" data-color="#ffcc66" data-calories="60">Mango</div>
+          <div class="ingredient-option" data-type="fruit" data-name="Pineapple" data-color="#ffff66" data-calories="45">Pineapple</div>
+        </div>
+      </div>
+      
+      <div class="ingredient-category">
+        <h3>Vegetables</h3>
+        <div class="ingredient-options">
+          <div class="ingredient-option" data-type="vegetable" data-name="Spinach" data-color="#66cc66" data-calories="10">Spinach</div>
+          <div class="ingredient-option" data-type="vegetable" data-name="Carrot" data-color="#ff9933" data-calories="30">Carrot</div>
+          <div class="ingredient-option" data-type="vegetable" data-name="Beetroot" data-color="#cc0066" data-calories="35">Beetroot</div>
+          <div class="ingredient-option" data-type="vegetable" data-name="Cucumber" data-color="#ccffcc" data-calories="8">Cucumber</div>
+        </div>
+      </div>
+      
+      <div class="ingredient-category">
+        <h3>Boosters</h3>
+        <div class="ingredient-options">
+          <div class="ingredient-option" data-type="booster" data-name="Ginger" data-color="#ffcc99" data-calories="5">Ginger</div>
+          <div class="ingredient-option" data-type="booster" data-name="Turmeric" data-color="#ffcc33" data-calories="5">Turmeric</div>
+          <div class="ingredient-option" data-type="booster" data-name="Chia Seeds" data-color="#cccc99" data-calories="30">Chia Seeds</div>
+          <div class="ingredient-option" data-type="booster" data-name="Protein Powder" data-color="#cccccc" data-calories="50">Protein Powder</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="preview-panel">
+      <h2>Your Custom Creation</h2>
+      
+      <div class="juice-preview">
+        <div class="juice-glass">
+          <div class="juice-color" id="juice-color-preview"></div>
+        </div>
+        <h3 id="juice-name-preview">My Healthy Mix</h3>
+      </div>
+      
+      <input type="text" class="juice-name-input" id="juice-name-input" placeholder="Name your juice creation..." maxlength="30">
+      
+      <div class="nutrition-facts">
+        <h4>Nutrition Facts</h4>
+        <div class="nutrition-grid">
+          <div class="nutrition-item">
+            <div class="nutrition-value" id="calories">0</div>
+            <div>Calories</div>
+          </div>
+          <div class="nutrition-item">
+            <div class="nutrition-value" id="vitamins">A,C,K</div>
+            <div>Vitamins</div>
+          </div>
+          <div class="nutrition-item">
+            <div class="nutrition-value" id="ingredient-count">0</div>
+            <div>Ingredients</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="selected-ingredients" id="selected-ingredients">
+        <h4>Your Ingredients:</h4>
+        <p>Select ingredients to see them here</p>
+      </div>
+      
+      <button class="add-to-cart" id="add-to-cart">Add to Cart - $5.99</button>
+    </div>
+  </section>
+
+  <footer class="footer">
+    &copy; 2025 HealthyBites. All rights reserved.
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const ingredients = {
+        base: null,
+        fruits: [],
+        vegetables: [],
+        boosters: []
+      };
+      
+      const juiceColor = document.getElementById('juice-color-preview');
+      const juiceNamePreview = document.getElementById('juice-name-preview');
+      const juiceNameInput = document.getElementById('juice-name-input');
+      const caloriesDisplay = document.getElementById('calories');
+      const vitaminsDisplay = document.getElementById('vitamins');
+      const ingredientCount = document.getElementById('ingredient-count');
+      const selectedIngredientsList = document.getElementById('selected-ingredients');
+      const addToCartBtn = document.getElementById('add-to-cart');
+      
+      // Update juice name when typed
+      juiceNameInput.addEventListener('input', function() {
+        juiceNamePreview.textContent = this.value || 'My Healthy Mix';
+      });
+      
+      // Handle ingredient selection
+      document.querySelectorAll('.ingredient-option').forEach(option => {
+        option.addEventListener('click', function() {
+          const type = this.dataset.type;
+          const name = this.dataset.name;
+          const color = this.dataset.color;
+          const calories = parseInt(this.dataset.calories);
+          
+          // Toggle selection
+          this.classList.toggle('selected');
+          
+          // Update ingredients object
+          if (type === 'base') {
+            if (this.classList.contains('selected')) {
+              // Deselect other base options
+              document.querySelectorAll(`.ingredient-option[data-type="base"]`).forEach(opt => {
+                if (opt !== this) opt.classList.remove('selected');
+              });
+              ingredients.base = { name, color, calories };
+            } else {
+              ingredients.base = null;
+            }
+          } else {
+            const category = type === 'fruit' ? 'fruits' : 
+                            type === 'vegetable' ? 'vegetables' : 'boosters';
+            
+            if (this.classList.contains('selected')) {
+              ingredients[category].push({ name, color, calories });
+            } else {
+              ingredients[category] = ingredients[category].filter(item => item.name !== name);
+            }
+          }
+          
+          updateJuicePreview();
+        });
+      });
+      
+      function updateJuicePreview() {
+        // Calculate total ingredients
+        const totalIngredients = 
+          (ingredients.base ? 1 : 0) + 
+          ingredients.fruits.length + 
+          ingredients.vegetables.length + 
+          ingredients.boosters.length;
+        
+        // Update counter
+        ingredientCount.textContent = totalIngredients;
+        
+        // Calculate nutrition
+        let totalCalories = 0;
+        let vitamins = new Set();
+        
+        if (ingredients.base) {
+          totalCalories += ingredients.base.calories;
+        }
+        
+        ingredients.fruits.forEach(fruit => {
+          totalCalories += fruit.calories;
+          vitamins.add('C');
+        });
+        
+        ingredients.vegetables.forEach(veg => {
+          totalCalories += veg.calories;
+          if (veg.name === 'Carrot') vitamins.add('A');
+          if (veg.name === 'Spinach') vitamins.add('K');
+        });
+        
+        ingredients.boosters.forEach(booster => {
+          totalCalories += booster.calories;
+        });
+        
+        // Update displays
+        caloriesDisplay.textContent = totalCalories;
+        vitaminsDisplay.textContent = Array.from(vitamins).join(',') || 'None';
+        
+        // Update juice color
+        if (totalIngredients > 0) {
+          let colors = [];
+          if (ingredients.base) colors.push(ingredients.base.color);
+          ingredients.fruits.forEach(fruit => colors.push(fruit.color));
+          ingredients.vegetables.forEach(veg => colors.push(veg.color));
+          
+          // Create gradient from selected colors
+          if (colors.length > 1) {
+            const gradientStops = colors.map((color, i) => 
+              `${color} ${i * (100/colors.length)}%, ${color} ${(i+1) * (100/colors.length)}%`
+            ).join(', ');
+            juiceColor.style.background = `linear-gradient(to top, ${gradientStops})`;
+          } else {
+            juiceColor.style.background = colors[0];
+          }
+          
+          juiceColor.style.height = '70%';
+        } else {
+          juiceColor.style.height = '0%';
+        }
+        
+        // Update selected ingredients list
+        if (totalIngredients > 0) {
+          let html = '<h4>Your Ingredients:</h4><ul>';
+          
+          if (ingredients.base) {
+            html += `<li>Base: ${ingredients.base.name}</li>`;
+          }
+          
+          if (ingredients.fruits.length > 0) {
+            html += `<li>Fruits: ${ingredients.fruits.map(f => f.name).join(', ')}</li>`;
+          }
+          
+          if (ingredients.vegetables.length > 0) {
+            html += `<li>Veggies: ${ingredients.vegetables.map(v => v.name).join(', ')}</li>`;
+          }
+          
+          if (ingredients.boosters.length > 0) {
+            html += `<li>Boosters: ${ingredients.boosters.map(b => b.name).join(', ')}</li>`;
+          }
+          
+          html += '</ul>';
+          selectedIngredientsList.innerHTML = html;
+        } else {
+          selectedIngredientsList.innerHTML = '<h4>Your Ingredients:</h4><p>Select ingredients to see them here</p>';
+        }
+        
+        // Enable/disable add to cart button
+        addToCartBtn.disabled = totalIngredients === 0;
+      }
+      
+      // Add to cart functionality
+      addToCartBtn.addEventListener('click', function() {
+        const juiceName = juiceNameInput.value || 'Custom Juice Mix';
+        alert(`${juiceName} added to cart!`);
+        // Here you would normally send data to your backend/cart system
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snacks Menu | HealthyBites</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">HealthyBites</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#">Shop</a></li>
+      <li><a href="#">Custom Juice</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    <div class="nav-buttons">
+      <a href="#">Login</a>
+      <a href="checkout.html" class="cart-link">
+        <span class="cart-icon">🛒</span>
+        <span class="cart-count" style="display: none;">0</span>
+      </a>
+    </div>
+  </nav>
+
+  <section class="detailed-meals">
+    <h1>Snacks Time</h1>
+    <p class="category-description">Healthy snacks to keep you fueled between meals without the guilt.</p>
+    
+    <div class="meal-grid">
+      <!-- Fruit Mix Cup -->
+      <div class="detailed-meal-card">
+        <img src="img/fruits.jpg" alt="Snack">
+        <div class="meal-info">
+          <h2>Fruit Mix Cup</h2>
+          <p class="price">$4.99</p>
+          <p class="description">Seasonal fresh fruit mix including berries, melon, pineapple, and grapes.</p>
+          <ul class="nutrition">
+            <li>Calories: 150</li>
+            <li>Protein: 2g</li>
+            <li>Carbs: 38g</li>
+            <li>Fiber: 5g</li>
+          </ul>
+          <button class="add-to-cart" 
+                  data-id="fruit-mix-cup" 
+                  data-name="Fruit Mix Cup" 
+                  data-price="4.99" 
+                  data-image="img/fruits.jpg">Add to Cart</button>
+        </div>
+      </div>
+      
+      <!-- Energy Nut Mix -->
+      <div class="detailed-meal-card">
+        <img src="img/nuts.webp" alt="Nuts">
+        <div class="meal-info">
+          <h2>Energy Nut Mix</h2>
+          <p class="price">$3.99</p>
+          <p class="description">Raw almonds, walnuts, cashews, and pumpkin seeds with a touch of sea salt.</p>
+          <ul class="nutrition">
+            <li>Calories: 200</li>
+            <li>Protein: 7g</li>
+            <li>Carbs: 10g</li>
+            <li>Fiber: 4g</li>
+          </ul>
+          <button class="add-to-cart" 
+                  data-id="energy-nut-mix" 
+                  data-name="Energy Nut Mix" 
+                  data-price="3.99" 
+                  data-image="img/nuts.webp">Add to Cart</button>
+        </div>
+      </div>
+      
+      <!-- Berry Smoothie -->
+      <div class="detailed-meal-card">
+        <img src="img/berry.jpg" alt="Smoothie">
+        <div class="meal-info">
+          <h2>Berry Smoothie</h2>
+          <p class="price">$5.49</p>
+          <p class="description">Mixed berries blended with almond milk, Greek yogurt, and flax seeds.</p>
+          <ul class="nutrition">
+            <li>Calories: 220</li>
+            <li>Protein: 12g</li>
+            <li>Carbs: 32g</li>
+            <li>Fiber: 7g</li>
+          </ul>
+          <button class="add-to-cart" 
+                  data-id="berry-smoothie" 
+                  data-name="Berry Smoothie" 
+                  data-price="5.49" 
+                  data-image="img/berry.jpg">Add to Cart</button>
+        </div>
+      </div>
+      
+      <!-- Additional snack items -->
+      <div class="detailed-meal-card">
+        <img src="img/sticks.jpg" alt="Veggie Sticks">
+        <div class="meal-info">
+          <h2>Crunchy Veggie Sticks</h2>
+          <p class="price">$4.49</p>
+          <p class="description">Carrot, cucumber, and bell pepper sticks with hummus dip.</p>
+          <ul class="nutrition">
+            <li>Calories: 180</li>
+            <li>Protein: 6g</li>
+            <li>Carbs: 22g</li>
+            <li>Fiber: 8g</li>
+          </ul>
+          <button class="add-to-cart" 
+                  data-id="crunchy-veggie-sticks" 
+                  data-name="Crunchy Veggie Sticks" 
+                  data-price="4.49" 
+                  data-image="img/sticks.jpg">Add to Cart</button>
+        </div>
+      </div>
+      
+      <div class="detailed-meal-card">
+        <img src="img/bars.jpg" alt="Protein Bar">
+        <div class="meal-info">
+          <h2>Homemade Protein Bar</h2>
+          <p class="price">$3.49</p>
+          <p class="description">Oats, peanut butter, protein powder, and dark chocolate chunks.</p>
+          <ul class="nutrition">
+            <li>Calories: 240</li>
+            <li>Protein: 15g</li>
+            <li>Carbs: 25g</li>
+            <li>Fiber: 5g</li>
+          </ul>
+          <button class="add-to-cart" 
+                  data-id="homemade-protein-bar" 
+                  data-name="Homemade Protein Bar" 
+                  data-price="3.49" 
+                  data-image="img/bars.jpg">Add to Cart</button>
+        </div>
+      </div>
+      
+      <div class="detailed-meal-card">
+        <img src="img/yogurtcup.jpg" alt="Yogurt Cup">
+        <div class="meal-info">
+          <h2>Protein Yogurt Cup</h2>
+          <p class="price">$4.29</p>
+          <p class="description">Greek yogurt with honey, walnuts, and a sprinkle of cinnamon.</p>
+          <ul class="nutrition">
+            <li>Calories: 190</li>
+            <li>Protein: 16g</li>
+            <li>Carbs: 18g</li>
+            <li>Fiber: 2g</li>
+          </ul>
+          <button class="add-to-cart" 
+                  data-id="protein-yogurt-cup" 
+                  data-name="Protein Yogurt Cup" 
+                  data-price="4.29" 
+                  data-image="img/yogurtcup.jpg">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    &copy; 2025 HealthyBites. All rights reserved.
+  </footer>
+
+  <script>
+    // Shared cart functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      updateCartCount();
+      
+      document.querySelectorAll('.add-to-cart').forEach(button => {
+        button.addEventListener('click', function() {
+          addToCart({
+            id: this.dataset.id,
+            name: this.dataset.name,
+            price: parseFloat(this.dataset.price),
+            image: this.dataset.image
+          });
+          
+          // Show feedback
+          this.textContent = 'Added!';
+          setTimeout(() => {
+            this.textContent = 'Add to Cart';
+          }, 2000);
+        });
+      });
+    });
+    
+    function addToCart(item) {
+      let cart = JSON.parse(localStorage.getItem('healthyBitesCart')) || [];
+      cart.push(item);
+      localStorage.setItem('healthyBitesCart', JSON.stringify(cart));
+      updateCartCount();
+    }
+    
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem('healthyBitesCart')) || [];
+      const cartCount = document.querySelector('.cart-count');
+      cartCount.textContent = cart.length;
+      cartCount.style.display = cart.length ? 'inline-block' : 'none';
+    }
+  </script>
+</body>
+</html>

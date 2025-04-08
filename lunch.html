@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lunch Menu | HealthyBites</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">HealthyBites</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#">Shop</a></li>
+      <li><a href="#">Custom Juice</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    <div class="nav-buttons">
+      <a href="#">Login</a>
+      <a href="checkout.html" class="cart-link">
+        <span class="cart-icon">🛒</span>
+        <span class="cart-count" style="display: none;">0</span>
+      </a>
+    </div>
+  </nav>
+
+  <section class="detailed-meals">
+    <h1>Lunch Menu</h1>
+    <p class="category-description">Nutritious midday meals to keep you energized throughout the day.</p>
+    
+    <div class="meal-grid">
+      <!-- Quinoa Salad Bowl -->
+      <div class="detailed-meal-card">
+        <img src="img/QuinoaSalad.jpg" alt="Salad">
+        <div class="meal-info">
+          <h2>Quinoa Salad Bowl</h2>
+          <p class="price">$8.49</p>
+          <p class="description">Protein-packed quinoa with mixed greens, cherry tomatoes, cucumber, avocado, and lemon-tahini dressing.</p>
+          <ul class="nutrition">
+            <li>Calories: 420</li>
+            <li>Protein: 14g</li>
+            <li>Carbs: 52g</li>
+            <li>Fiber: 12g</li>
+          </ul>
+          <button class="add-to-cart" 
+                  data-id="quinoa-salad" 
+                  data-name="Quinoa Salad Bowl" 
+                  data-price="8.49" 
+                  data-image="img/QuinoaSalad.jpg">Add to Cart</button>
+        </div>
+      </div>
+      
+      <!-- Grilled Chicken Wrap -->
+      <div class="detailed-meal-card">
+        <img src="img/chickenwrap.jpg" alt="Wrap">
+        <div class="meal-info">
+          <h2>Grilled Chicken Wrap</h2>
+          <p class="price">$9.25</p>
+          <p class="description">Whole wheat wrap with grilled chicken, mixed greens, tomato, cucumber, and yogurt dressing.</p>
+          <ul class="nutrition">
+            <li>Calories: 380</li>
+            <li>Protein: 32g</li>
+            <li>Carbs: 38g</li>
+            <li>Fiber: 8g</li>
+          </ul>
+          <button class="add-to-cart" 
+                  data-id="grilled-chicken-wrap" 
+                  data-name="Grilled Chicken Wrap" 
+                  data-price="9.25" 
+                  data-image="img/chickenwrap.jpg">Add to Cart</button>
+        </div>
+      </div>
+      
+      <!-- Vegan Protein Bowl -->
+      <div class="detailed-meal-card">
+        <img src="img/salad.jpeg" alt="Vegan Bowl">
+        <div class="meal-info">
+          <h2>Vegan Protein Bowl</h2>
+          <p class="price">$9.99</p>
+          <p class="description">Brown rice base with roasted chickpeas, sweet potatoes, kale, tahini dressing, and hemp seeds.</p>
+          <ul class="nutrition">
+            <li>Calories: 450</li>
+            <li>Protein: 18g</li>
+            <li>Carbs: 68g</li>
+            <li>Fiber: 15g</li>
+          </ul>
+          <button class="add-to-cart" 
+                  data-id="vegan-protein-bowl" 
+                  data-name="Vegan Protein Bowl" 
+                  data-price="9.99" 
+                  data-image="img/salad.jpeg">Add to Cart</button>
+        </div>
+      </div>
+      
+      <!-- Additional lunch items -->
+      <div class="detailed-meal-card">
+        <img src="img/rainbow.jpg" alt="Buddha Bowl">
+        <div class="meal-info">
+          <h2>Rainbow Buddha Bowl</h2>
+          <p class="price">$8.99</p>
+          <p class="description">Quinoa base with roasted vegetables, avocado, edamame, pickled onions, and miso dressing.</p>
+          <ul class="nutrition">
+            <li>Calories: 480</li>
+            <li>Protein: 16g</li>
+            <li>Carbs: 62g</li>
+            <li>Fiber: 14g</li>
+          </ul>
+          <button class="add-to-cart" 
+                  data-id="rainbow-buddha-bowl" 
+                  data-name="Rainbow Buddha Bowl" 
+                  data-price="8.99" 
+                  data-image="img/rainbow.jpg">Add to Cart</button>
+        </div>
+      </div>
+      
+      <div class="detailed-meal-card">
+        <img src="img/turkey.jpg" alt="Turkey Sandwich">
+        <div class="meal-info">
+          <h2>Turkey Avocado Sandwich</h2>
+          <p class="price">$8.75</p>
+          <p class="description">Multigrain bread with roasted turkey, avocado, sprouts, tomato, and mustard.</p>
+          <ul class="nutrition">
+            <li>Calories: 420</li>
+            <li>Protein: 28g</li>
+            <li>Carbs: 42g</li>
+            <li>Fiber: 10g</li>
+          </ul>
+          <button class="add-to-cart" 
+                  data-id="turkey-avocado-sandwich" 
+                  data-name="Turkey Avocado Sandwich" 
+                  data-price="8.75" 
+                  data-image="img/turkey.jpg">Add to Cart</button>
+        </div>
+      </div>
+      
+      <div class="detailed-meal-card">
+        <img src="img/lentil-soup.avif" alt="Lentil Soup">
+        <div class="meal-info">
+          <h2>Lentil Soup Combo</h2>
+          <p class="price">$7.99</p>
+          <p class="description">Hearty lentil soup with a side of whole grain bread and small salad.</p>
+          <ul class="nutrition">
+            <li>Calories: 390</li>
+            <li>Protein: 20g</li>
+            <li>Carbs: 58g</li>
+            <li>Fiber: 16g</li>
+          </ul>
+          <button class="add-to-cart" 
+                  data-id="lentil-soup-combo" 
+                  data-name="Lentil Soup Combo" 
+                  data-price="7.99" 
+                  data-image="img/lentil-soup.avif">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    &copy; 2025 HealthyBites. All rights reserved.
+  </footer>
+
+  <script>
+    // Shared cart functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      updateCartCount();
+      
+      document.querySelectorAll('.add-to-cart').forEach(button => {
+        button.addEventListener('click', function() {
+          addToCart({
+            id: this.dataset.id,
+            name: this.dataset.name,
+            price: parseFloat(this.dataset.price),
+            image: this.dataset.image
+          });
+          
+          // Show feedback
+          this.textContent = 'Added!';
+          setTimeout(() => {
+            this.textContent = 'Add to Cart';
+          }, 2000);
+        });
+      });
+    });
+    
+    function addToCart(item) {
+      let cart = JSON.parse(localStorage.getItem('healthyBitesCart')) || [];
+      cart.push(item);
+      localStorage.setItem('healthyBitesCart', JSON.stringify(cart));
+      updateCartCount();
+    }
+    
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem('healthyBitesCart')) || [];
+      const cartCount = document.querySelector('.cart-count');
+      cartCount.textContent = cart.length;
+      cartCount.style.display = cart.length ? 'inline-block' : 'none';
+    }
+  </script>
+</body>
+</html>

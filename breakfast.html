@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Breakfast Menu | HealthyBites</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">HealthyBites</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#">Shop</a></li>
+      <li><a href="#">Custom Juice</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    <div class="nav-buttons">
+      <a href="#">Login</a>
+      <a href="checkout.html" class="cart-link">
+        <span class="cart-icon">🛒</span>
+        <span class="cart-count" style="display: none;">0</span>
+      </a>
+    </div>
+  </nav>
+
+  <section class="detailed-meals">
+    <h1>Breakfast Menu</h1>
+    <p class="category-description">Start your day right with our nutritious and delicious breakfast options.</p>
+    
+    <div class="meal-grid">
+      <!-- Banana Oats Bowl -->
+      <div class="detailed-meal-card">
+        <img src="https://pinchofyum.com/cdn-cgi/image/width=680,height=99999,fit=scale-down/wp-content/uploads/banana-oatmeal-3.jpg" alt="Oats">
+        <div class="meal-info">
+          <h2>Banana Oats Bowl</h2>
+          <p class="price">$5.99</p>
+          <p class="description">Creamy oatmeal topped with fresh bananas, chia seeds, and a drizzle of honey. Packed with fiber and natural sweetness.</p>
+          <ul class="nutrition">
+            <li>Calories: 320</li>
+            <li>Protein: 8g</li>
+            <li>Carbs: 58g</li>
+            <li>Fiber: 10g</li>
+          </ul>
+          <button class="add-to-cart" 
+        data-id="banana-oats" 
+        data-name="Banana Oats Bowl" 
+        data-price="5.99" 
+        data-image="https://pinchofyum.com/cdn-cgi/image/width=680,height=99999,fit=scale-down/wp-content/uploads/banana-oatmeal-3.jpg">
+  Add to Cart
+</button>
+        </div>
+      </div>
+      
+      <!-- Avocado Toast -->
+      <div class="detailed-meal-card">
+        <img src="img/avacado.jpg" alt="Toast">
+        <div class="meal-info">
+          <h2>Avocado Toast</h2>
+          <p class="price">$6.49</p>
+          <p class="description">Sourdough bread topped with smashed avocado, cherry tomatoes, microgreens, and a sprinkle of chili flakes.</p>
+          <ul class="nutrition">
+            <li>Calories: 380</li>
+            <li>Protein: 9g</li>
+            <li>Carbs: 42g</li>
+            <li>Fiber: 12g</li>
+          </ul>
+          <button class="add-to-cart" data-id="avocado-toast" data-name="Avocado Toast" data-price="6.49" 
+          data-image="img/avacado.jpg">Add to Cart</button>
+        </div>
+      </div>
+      
+      <!-- Protein Pancakes -->
+      <div class="detailed-meal-card">
+        <img src="img/pancake.jpg" alt="Pancake">
+        <div class="meal-info">
+          <h2>Protein Pancakes</h2>
+          <p class="price">$7.29</p>
+          <p class="description">Fluffy pancakes made with oat flour and whey protein, served with fresh berries and sugar-free maple syrup.</p>
+          <ul class="nutrition">
+            <li>Calories: 410</li>
+            <li>Protein: 24g</li>
+            <li>Carbs: 52g</li>
+            <li>Fiber: 8g</li>
+          </ul>
+          <button class="add-to-cart" 
+          data-id="protein-pancakes" 
+          data-name="protein pancakes" 
+          data-price="7.29" 
+          data-image="img/pancake.jpg">
+    Add to Cart
+  </button>
+        </div>
+      </div>
+      
+      <!-- Additional breakfast items -->
+      <div class="detailed-meal-card">
+        <img src="img/smoothie.jpg" alt="Smoothie Bowl">
+        <div class="meal-info">
+          <h2>Acai Smoothie Bowl</h2>
+          <p class="price">$6.99</p>
+          <p class="description">Thick acai blend topped with granola, coconut flakes, banana slices, and almond butter drizzle.</p>
+          <ul class="nutrition">
+            <li>Calories: 350</li>
+            <li>Protein: 6g</li>
+            <li>Carbs: 62g</li>
+            <li>Fiber: 11g</li>
+          </ul>
+          <button class="add-to-cart" 
+          data-id="acai-smoothie-bowl" 
+          data-name="Acai Smoothie Bowl" 
+          data-price="6.99" 
+          data-image="img/smoothie.jpg">
+    Add to Cart
+  </button>
+        </div>
+      </div>
+      
+      <div class="detailed-meal-card">
+        <img src="img/omelette.jpg" alt="Omelette">
+        <div class="meal-info">
+          <h2>Veggie Omelette</h2>
+          <p class="price">$7.99</p>
+          <p class="description">Fluffy egg white omelette with spinach, mushrooms, bell peppers, and feta cheese.</p>
+          <ul class="nutrition">
+            <li>Calories: 280</li>
+            <li>Protein: 22g</li>
+            <li>Carbs: 12g</li>
+            <li>Fiber: 3g</li>
+          </ul>
+          <button class="add-to-cart" 
+          data-id="veggie-omelette" 
+          data-name="Veggie Omelette" 
+          data-price="7.99" 
+          data-image="img/omelette.jpg">
+    Add to Cart
+  </button>
+        </div>
+      </div>
+      
+      <div class="detailed-meal-card">
+        <img src="img/yogurt.jpg" alt="Yogurt Parfait">
+        <div class="meal-info">
+          <h2>Greek Yogurt Parfait</h2>
+          <p class="price">$5.49</p>
+          <p class="description">Layers of Greek yogurt, homemade granola, and mixed berries with a touch of honey.</p>
+          <ul class="nutrition">
+            <li>Calories: 290</li>
+            <li>Protein: 18g</li>
+            <li>Carbs: 38g</li>
+            <li>Fiber: 6g</li>
+          </ul>
+          <button class="add-to-cart" 
+          data-id="greek-yogurt-parfait" 
+          data-name="Greek Yogurt Parfait" 
+          data-price="5.49" 
+          data-image="img/yogurt.jpg">
+    Add to Cart
+  </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    &copy; 2025 HealthyBites. All rights reserved.
+  </footer>
+
+
+  <script>
+    // Shared cart functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      updateCartCount();
+      
+      document.querySelectorAll('.add-to-cart').forEach(button => {
+        button.addEventListener('click', function() {
+          addToCart({
+            id: this.dataset.id,
+            name: this.dataset.name,
+            price: parseFloat(this.dataset.price),
+            image: this.dataset.image
+          });
+          
+          // Show feedback
+          this.textContent = 'Added!';
+          setTimeout(() => {
+            this.textContent = 'Add to Cart';
+          }, 2000);
+        });
+      });
+    });
+    
+    function addToCart(item) {
+      let cart = JSON.parse(localStorage.getItem('healthyBitesCart')) || [];
+      cart.push(item);
+      localStorage.setItem('healthyBitesCart', JSON.stringify(cart));
+      updateCartCount();
+    }
+    
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem('healthyBitesCart')) || [];
+      const cartCount = document.querySelector('.cart-count');
+      cartCount.textContent = cart.length;
+      cartCount.style.display = cart.length ? 'inline-block' : 'none';
+    }
+    </script>
+</body>
+</html>
