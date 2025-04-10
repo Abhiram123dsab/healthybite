@@ -19,9 +19,11 @@ class Payment {
             $this->logger->logPaymentEvent($orderId, 'payment_initiated', 'pending', 'Payment processing started', $paymentData);
             
             // Validate payment data
-            if (!$this->validatePaymentData($paymentData)) {
-                $this->logger->logPaymentEvent($orderId, 'validation_failed', 'error', 'Invalid payment data', $paymentData);
-                throw new Exception('Invalid payment data');
+            $validationResult = $this->validatePaymentData($paymentData);
+            if (!$validationResult['isValid']) {
+                $errorMessage = isset($validationResult['error']) ? $validationResult['error'] : implode(', ', $validationResult['errors']);
+                $this->logger->logPaymentEvent($orderId, 'validation_failed', 'error', $errorMessage, $paymentData);
+                throw new Exception($errorMessage);
             }
             
             // Get order details
@@ -89,17 +91,23 @@ class Payment {
         }
     }
     
-    private function validatePaymentData($paymentData) {
+    public function validatePaymentData($paymentData) {
+        $errors = [];
         $required = ['payment_method', 'card_number', 'expiry_month', 'expiry_year', 'cvv'];
+        
         foreach ($required as $field) {
             if (!isset($paymentData[$field]) || empty($paymentData[$field])) {
-                return false;
+                $errors[] = "Missing {$field}";
             }
+        }
+        
+        if (!empty($errors)) {
+            return ['isValid' => false, 'errors' => $errors];
         }
         
         // Basic card number validation (Luhn algorithm)
         if (!$this->validateCardNumber($paymentData['card_number'])) {
-            return false;
+            $errors[] = 'Invalid card number';
         }
         
         // Expiry date validation
@@ -107,13 +115,24 @@ class Payment {
         $currentMonth = date('m');
         if ($paymentData['expiry_year'] < $currentYear ||
             ($paymentData['expiry_year'] == $currentYear && $paymentData['expiry_month'] < $currentMonth)) {
-            return false;
+            $errors[] = 'Card has expired';
         }
         
-        return true;
+        // Check for duplicate transaction
+        if (isset($paymentData['transaction_id'])) {
+            $stmt = $this->conn->prepare(
+                "SELECT COUNT(*) FROM payments WHERE transaction_id = ?"
+            );
+            $stmt->execute([$paymentData['transaction_id']]);
+            if ($stmt->fetchColumn() > 0) {
+                return ['isValid' => false, 'error' => 'Duplicate transaction'];
+            }
+        }
+        
+        return ['isValid' => empty($errors), 'errors' => $errors];
     }
     
-    private function validateCardNumber($number) {
+    public function validateCardNumber($number) {
         $number = preg_replace('/\D/', '', $number);
         $length = strlen($number);
         $parity = $length % 2;

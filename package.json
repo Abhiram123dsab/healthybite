@@ -1,0 +1,23 @@
+{
+  "name": "healthybite",
+  "version": "1.0.0",
+  "description": "College food ordering system with healthy options",
+  "scripts": {
+    "test": "jest && vendor/bin/phpunit",
+    "test:frontend": "jest",
+    "test:backend": "vendor/bin/phpunit",
+    "test:coverage": "jest --coverage && vendor/bin/phpunit --coverage-html coverage"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.22.5",
+    "@babel/preset-env": "^7.22.5",
+    "@testing-library/jest-dom": "^5.16.5",
+    "babel-jest": "^29.5.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^29.5.0",
+    "jest-environment-jsdom": "^29.5.0"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.22.5"
+  }
+}
