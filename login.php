@@ -35,15 +35,48 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <!-- Login HTML Form -->
 <!DOCTYPE html>
-<html>
-<head><title>Login</title></head>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | HealthyBites</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
 <body>
-<h2>Login</h2>
-<?php foreach($errors as $error) echo "<p style='color:red;'>$error</p>"; ?>
-<form method="POST">
-    Email: <input type="email" name="email" required><br><br>
-    Password: <input type="password" name="password" required><br><br>
-    <button type="submit">Login</button>
-</form>
+  <nav class="navbar">
+    <div class="logo">HealthyBites</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="custom-juice.html">Custom Juice</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-buttons">
+      <a href="signup.php">Sign Up</a>
+      <a href="checkout.html" class="cart-link">
+        <span class="cart-icon">🛒</span>
+        <span class="cart-count" style="display: none;">0</span>
+      </a>
+    </div>
+  </nav>
+
+  <div class="auth-container">
+    <h2>Login</h2>
+    <?php foreach($errors as $error) echo "<p style='color:red;'>$error</p>"; ?>
+    <form method="POST" class="auth-form">
+      <input type="email" name="email" placeholder="Email Address" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <button type="submit">Login</button>
+    </form>
+    <div class="auth-links">
+      <p>Don't have an account? <a href="signup.php">Sign Up</a></p>
+    </div>
+  </div>
+
+  <footer class="footer">
+    &copy; 2025 HealthyBites. All rights reserved.
+  </footer>
+
+  <script src="js/cart.js"></script>
 </body>
 </html>

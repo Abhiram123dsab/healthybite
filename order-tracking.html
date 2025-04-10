@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Tracking - HealthyBite</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .order-tracking-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+        
+        .order-status-card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .status-label {
+            font-weight: bold;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+        
+        #order-status {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+        
+        .status-preparing {
+            color: #f39c12;
+        }
+        
+        .status-cooking {
+            color: #e67e22;
+        }
+        
+        .status-ready {
+            color: #27ae60;
+        }
+        
+        .status-delivered {
+            color: #2ecc71;
+        }
+        
+        .estimated-time {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1rem 0;
+        }
+        
+        .timeline-container {
+            margin-top: 2rem;
+        }
+        
+        .timeline-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 1rem 0;
+            border-left: 2px solid #ddd;
+            margin-left: 1rem;
+            position: relative;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            width: 12px;
+            height: 12px;
+            background: #fff;
+            border: 2px solid #3498db;
+            border-radius: 50%;
+            position: absolute;
+            left: -7px;
+        }
+        
+        .timeline-status {
+            font-weight: bold;
+            margin-left: 1rem;
+        }
+        
+        .timeline-time {
+            color: #666;
+            margin-left: auto;
+            font-size: 0.9rem;
+        }
+        
+        .timeline-description {
+            margin-left: 1rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .order-tracking-container {
+                margin: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <a href="index.html">HealthyBite</a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="orders.php">Orders</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="order-tracking-container">
+        <h1>Track Your Order</h1>
+
+        <div class="order-status-card">
+            <div class="status-label">Current Status</div>
+            <div id="order-status">Preparing</div>
+
+            <div class="estimated-time">
+                <div class="status-label">Estimated Time</div>
+                <div id="estimated-time">15-20 minutes</div>
+            </div>
+        </div>
+
+        <div class="timeline-container">
+            <h2>Order Timeline</h2>
+            <div id="order-timeline">
+                <!-- Timeline items will be added here dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/order-tracking.js"></script>
+    <script>
+        // Initialize order tracking
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get order ID from URL parameter
+            const urlParams = new URLSearchParams(window.location.search);
+            const orderId = urlParams.get('orderId');
+
+            if (orderId) {
+                const tracker = new OrderTracker();
+                tracker.init(orderId);
+            } else {
+                alert('Order ID not found!');
+            }
+        });
+    </script>
+</body>
+
+</html>

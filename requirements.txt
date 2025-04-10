@@ -1,0 +1,13 @@
+# PHP Dependencies
+php >= 7.4.0
+mysql >= 8.0.0
+php-mysql >= 7.4.0
+
+# Frontend Dependencies
+font-awesome >= 6.5.0
+aos >= 2.3.4
+
+# Development Tools
+php-cli >= 7.4.0
+php-fpm >= 7.4.0
+composer >= 2.0.0

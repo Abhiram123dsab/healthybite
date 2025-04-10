@@ -366,21 +366,8 @@
     &copy; 2025 HealthyBites. All rights reserved.
   </footer>
 
+  <script src="js/cart.js"></script>
   <script>
-   document.addEventListener('DOMContentLoaded', function() {
-  // Initialize cart
-  let cart = JSON.parse(localStorage.getItem('healthyBitesCart')) || [];
-  updateCartCount();
-  
-  // Rest of your existing checkout code...
-});
-
-function updateCartCount() {
-  const cart = JSON.parse(localStorage.getItem('healthyBitesCart')) || [];
-  const cartCount = document.querySelector('.cart-count');
-  cartCount.textContent = cart.length;
-  cartCount.style.display = cart.length ? 'inline-block' : 'none';
-}
       // Sample product data - replace with your actual products
       const products = {
     // Breakfast Items

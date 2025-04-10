@@ -1,0 +1,23 @@
+{
+    "name": "healthybite/healthybite",
+    "description": "HealthyBite Food Ordering System",
+    "type": "project",
+    "require": {
+        "php": ">=7.4"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "HealthyBite\\": "includes/"
+        }
+    },
+    "scripts": {
+        "phpcs": "phpcs",
+        "phpcbf": "phpcbf"
+    },
+    "config": {
+        "sort-packages": true
+    }
+}

@@ -36,17 +36,50 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <!-- Signup HTML Form -->
 <!DOCTYPE html>
-<html>
-<head><title>Signup</title></head>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up | HealthyBites</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
 <body>
-<h2>Signup</h2>
-<?php foreach($errors as $error) echo "<p style='color:red;'>$error</p>"; ?>
-<form method="POST">
-    Username: <input type="text" name="username" required><br><br>
-    Email: <input type="email" name="email" required><br><br>
-    Password: <input type="password" name="password" required><br><br>
-    Confirm Password: <input type="password" name="confirm_password" required><br><br>
-    <button type="submit">Sign Up</button>
-</form>
+  <nav class="navbar">
+    <div class="logo">HealthyBites</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="custom-juice.html">Custom Juice</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-buttons">
+      <a href="login.php">Login</a>
+      <a href="checkout.html" class="cart-link">
+        <span class="cart-icon">🛒</span>
+        <span class="cart-count" style="display: none;">0</span>
+      </a>
+    </div>
+  </nav>
+
+  <div class="auth-container">
+    <h2>Sign Up</h2>
+    <?php foreach($errors as $error) echo "<p style='color:red;'>$error</p>"; ?>
+    <form method="POST" class="auth-form">
+      <input type="text" name="username" placeholder="Username" required>
+      <input type="email" name="email" placeholder="Email Address" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+      <button type="submit">Sign Up</button>
+    </form>
+    <div class="auth-links">
+      <p>Already have an account? <a href="login.php">Login</a></p>
+    </div>
+  </div>
+
+  <footer class="footer">
+    &copy; 2025 HealthyBites. All rights reserved.
+  </footer>
+
+  <script src="js/cart.js"></script>
 </body>
 </html>
